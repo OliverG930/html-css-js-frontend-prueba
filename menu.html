@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Carreras y Cursos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Carreras y Cursos</h1>
+
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Buscar carreras por nombre...">
+            <select id="mallaFilter">
+                <option value="">Todas las Mallas</option>
+                </select>
+            <button id="exportExcelBtn">Exportar a Excel</button>
+            <button id="exportPdfBtn">Exportar a PDF</button>
+            <button id="printBtn">Imprimir</button>
+        </div>
+
+        <table id="careersTable">
+            <thead>
+                <tr>
+                    <th>Nombre de Carrera</th>
+                    <th>Descripción</th>
+                    <th>Duración (años)</th>
+                    <th>Malla Principal</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+    </div>
+
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Detalles de la Carrera</h2>
+            <p><strong>Nombre:</strong> <span id="detailName"></span></p>
+            <p><strong>Descripción:</strong> <span id="detailDescription"></span></p>
+            <p><strong>Duración:</strong> <span id="detailDuration"></span> años</p>
+            <p><strong>Código:</strong> <span id="detailCode"></span></p>
+            <p><strong>Modalidad:</strong> <span id="detailModality"></span></p>
+
+            <h3 id="coursesTitle">Cursos Asignados (<span id="currentMallaName">Todas las Mallas</span>)</h3>
+            <ul id="careerCoursesList">
+                </ul>
+            <p id="noCoursesMessage" style="display: none;">No hay cursos asignados para esta malla o carrera.</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
